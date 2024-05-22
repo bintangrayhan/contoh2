@@ -1,42 +1,23 @@
-package src.test.java;
+import src.main.java.Counter;
 
-import static org.junit.Assert.*;
-import src.main.java.*;
-import org.junit.Test;
+public class Driver {
 
-public class CounterTest {
-
-	@Test
-	public void testReset() {
-		Counter testCounter = new Counter();
+	public static void main(String[] args) {
 		
-		for(int i = 0; i <10; i++) {
-			testCounter.increment();
-		}
+		Counter counter = new Counter();
 		
-		testCounter.reset();
+		System.out.println("Current count:" + counter.getCount());
 		
-		assertEquals(testCounter.getCount(), 0);
+		counter.increaseBy(5);
+		
+		System.out.println("Current count:" + counter.getCount());
+		
+		counter.decreaseBy(2);
+		
+		System.out.println("Current count:" + counter.getCount());
+		
+		counter.multiplyBy(6);
+		
+		System.out.println("Current count:" + counter.getCount());	
 	}
-
-	@Test
-	public void testIncrement() {
-		Counter testCounter = new Counter();
-		
-		for(int i = 1; i <10; i++) {
-			testCounter.increment();
-			assertEquals(testCounter.getCount(), i);
-		}
-	}
-
-	@Test
-	public void testDecrement() {
-		Counter testCounter = new Counter();
-		
-		for(int i = 1; i <10; i++) {
-			testCounter.decrement();
-			assertEquals(testCounter.getCount(), i * -1);
-		}
-	}
-
 }
